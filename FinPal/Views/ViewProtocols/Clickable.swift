@@ -5,9 +5,7 @@
 //  Created by Gabriel Taques on 07/06/22.
 //
 
-import Foundation
+import UIKit
 
 
-protocol Clickable: Viewable {
-    func buttonTapped()
-}
+protocol Clickable: UIButton, Viewable {}

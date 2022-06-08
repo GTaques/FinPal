@@ -9,5 +9,5 @@ import UIKit
 
 
 protocol Viewable {
-    func setup(parent view: UIView)
+    func setupOnScreen(parent view: UIView, owner vc: UIViewController)
 }

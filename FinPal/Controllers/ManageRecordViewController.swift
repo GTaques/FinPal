@@ -7,8 +7,10 @@
 
 import UIKit
 
-class ManageRecordViewController: UIViewController {
+class ManageRecordViewController: UIViewController, Storyboardable {
 
+    weak var coordinator: MainCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

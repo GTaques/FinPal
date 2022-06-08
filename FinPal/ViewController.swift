@@ -7,16 +7,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Storyboardable {
 
-    var button: Viewable!
+    weak var coordinator: MainCoordinator?
+    var button: Clickable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .green
-        button = AddRecordButtonView(frame: self.view.frame)
-        button.setup(parent: self.view)
+        self.button = AddRecordButtonView(frame: self.view.frame)
+        button.setupOnScreen(parent: self.view, owner: self)
+        button.addTarget(self, action: #selector(addRecordButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    public func addRecordButtonTapped() {
+        coordinator?.manageRecord()
     }
 }
 

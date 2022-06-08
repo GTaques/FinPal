@@ -7,29 +7,20 @@
 
 import UIKit
 
-class AddRecordButtonView: UIView, Clickable {
-    
+class AddRecordButtonView: UIButton, Clickable {
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.frame = CGRect(x: 100, y: 100, width: 200, height: 50)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(parent view: UIView) {
-        let button: UIButton = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
-        button.backgroundColor = .systemBackground
-        button.setTitle("Click Me!", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        view.addSubview(button)
+    func setupOnScreen(parent view: UIView, owner vc: UIViewController) {
+        self.backgroundColor = .systemBackground
+        self.setTitle("Click Me!", for: .normal)
+        self.setTitleColor(.systemBlue, for: .normal)
+        view.addSubview(self)
     }
-    
-    @objc
-    func buttonTapped() {
-         
-    }
-    
-    
 }
