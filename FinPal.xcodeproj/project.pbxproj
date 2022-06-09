@@ -21,6 +21,8 @@
 		2928AF5A2850EA3B0033C13F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928AF592850EA3B0033C13F /* Coordinator.swift */; };
 		2928AF5C2850EB380033C13F /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928AF5B2850EB380033C13F /* Storyboardable.swift */; };
 		2928AF5E2850F68A0033C13F /* RecordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928AF5D2850F68A0033C13F /* RecordCoordinator.swift */; };
+		2928AF91285253C20033C13F /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928AF90285253C20033C13F /* Record.swift */; };
+		2928AF95285257800033C13F /* StatementTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928AF94285257800033C13F /* StatementTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		2928AF592850EA3B0033C13F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2928AF5B2850EB380033C13F /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 		2928AF5D2850F68A0033C13F /* RecordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoordinator.swift; sourceTree = "<group>"; };
+		2928AF90285253C20033C13F /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		2928AF94285257800033C13F /* StatementTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 		2928AF46284F950A0033C13F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2928AF90285253C20033C13F /* Record.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			children = (
 				2928AF4F284F98350033C13F /* ViewProtocols */,
 				2928AF51284F98860033C13F /* AddRecordButtonView.swift */,
+				2928AF94285257800033C13F /* StatementTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2928AF95285257800033C13F /* StatementTableView.swift in Sources */,
 				2928AF562850DDBF0033C13F /* Viewable.swift in Sources */,
 				2928AF582850EA080033C13F /* MainCoordinator.swift in Sources */,
 				2928AF54284F98BF0033C13F /* Clickable.swift in Sources */,
@@ -209,6 +216,7 @@
 				2928AF4D284F95790033C13F /* ManageRecordViewController.swift in Sources */,
 				2928AF37284F94FE0033C13F /* ViewController.swift in Sources */,
 				2928AF33284F94FE0033C13F /* AppDelegate.swift in Sources */,
+				2928AF91285253C20033C13F /* Record.swift in Sources */,
 				2928AF35284F94FE0033C13F /* SceneDelegate.swift in Sources */,
 				2928AF5E2850F68A0033C13F /* RecordCoordinator.swift in Sources */,
 				2928AF5C2850EB380033C13F /* Storyboardable.swift in Sources */,

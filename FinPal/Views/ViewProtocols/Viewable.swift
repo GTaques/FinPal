@@ -10,4 +10,5 @@ import UIKit
 
 protocol Viewable {
     func setupOnScreen(parent view: UIView, owner vc: UIViewController)
+    func layoutSubviews(parent view: UIView, owner vc: UIViewController)
 }

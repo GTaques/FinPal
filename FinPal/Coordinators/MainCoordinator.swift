@@ -16,9 +16,13 @@ class MainCoordinator: NSObject, Coordinator {
     }
     
     func start() {
-//        navigationController.delegate = self
         let vc = ViewController.instatiate()
         vc.coordinator = self
+        
+        //Inject Dependencies
+        vc.button = AddRecordButtonView()
+        vc.recordsTableView = StatementTableView()
+        
         navigationController.pushViewController(vc, animated: false)
     }
     
