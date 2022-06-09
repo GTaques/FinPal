@@ -8,6 +8,7 @@
 import UIKit
 
 class AddRecordButtonView: UIButton, Clickable {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = CGRect(x: 100, y: 100, width: 200, height: 50)
@@ -23,4 +24,6 @@ class AddRecordButtonView: UIButton, Clickable {
         self.setTitleColor(.systemBlue, for: .normal)
         view.addSubview(self)
     }
+    
+    func layoutSubviews(parent view: UIView, owner vc: UIViewController) {}
 }
