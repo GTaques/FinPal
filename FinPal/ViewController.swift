@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UITableViewDataSource {
 
     weak var coordinator: MainCoordinator?
+    var totalBalanceView: Viewable?
     var button: Clickable?
     var recordsTableView: Viewable?
     
@@ -17,12 +18,15 @@ class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.view.backgroundColor = .green
-        self.button?.frame = self.view.frame
+        
         button?.setupOnScreen(parent: self.view, owner: self)
         button?.addTarget(self, action: #selector(addRecordButtonTapped), for: .touchUpInside)
+        
         recordsTableView?.setupOnScreen(parent: self.view, owner: self)
+        
+        totalBalanceView?.setupOnScreen(parent: self.view, owner: self)
+        totalBalanceView?.setupConstraintsRelativeToParent(parent: self.view, owner: self)
     }
     
     @objc
@@ -33,6 +37,8 @@ class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UIT
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         recordsTableView?.layoutSubviews(parent: self.view, owner: self)
+        totalBalanceView?.layoutSubviews(parent: self.view, owner: self)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,6 +50,6 @@ class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UIT
         cell.textLabel?.text = String(records[indexPath.row])
         return cell
     }
-    
+
 }
 

@@ -22,6 +22,7 @@ class MainCoordinator: NSObject, Coordinator {
         //Inject Dependencies
         vc.button = AddRecordButtonView()
         vc.recordsTableView = StatementTableView()
+        vc.totalBalanceView = TotalBalanceView()
         
         navigationController.pushViewController(vc, animated: false)
     }
