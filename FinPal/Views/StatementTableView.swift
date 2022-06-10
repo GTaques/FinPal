@@ -8,6 +8,7 @@
 import UIKit
 
 class StatementTableView: UITableView, Viewable {
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.frame = self.bounds
