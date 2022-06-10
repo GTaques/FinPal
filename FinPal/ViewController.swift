@@ -10,9 +10,9 @@ import UIKit
 class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UITableViewDataSource {
 
     weak var coordinator: MainCoordinator?
-    var totalBalanceView: Viewable?
-    var button: Clickable?
-    var recordsTableView: Viewable?
+    var totalBalanceView: TotalBalanceView?
+    var addRecordButton: AddRecordButton?
+    var statementTableView: StatementTableView?
     
     var records = [100, 200, 300]
     
@@ -20,26 +20,35 @@ class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UIT
         super.viewDidLoad()
         self.view.backgroundColor = .green
         
-        button?.setupOnScreen(parent: self.view, owner: self)
-        button?.addTarget(self, action: #selector(addRecordButtonTapped), for: .touchUpInside)
+        createSubviewsComponents()
+        addSubviewComponents()
         
-        recordsTableView?.setupOnScreen(parent: self.view, owner: self)
+        addRecordButton?.addTarget(self, action: #selector(addRecordButtonTapped), for: .touchUpInside)
         
-        totalBalanceView?.setupOnScreen(parent: self.view, owner: self)
-        totalBalanceView?.setupConstraintsRelativeToParent(parent: self.view, owner: self)
+        statementTableView!.delegate = self
+        statementTableView!.dataSource = self
     }
     
+    func createSubviewsComponents() {
+        let screenSize = UIScreen.main.bounds
+        self.totalBalanceView = TotalBalanceView(frame: CGRect(x: 0, y: 0, width: screenSize.width - 20, height: screenSize.height * 0.2))
+        self.statementTableView = StatementTableView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.8))
+        self.addRecordButton = AddRecordButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
+    }
+    
+    func addSubviewComponents() {
+        self.view.addSubview(totalBalanceView!)
+        self.view.addSubview(statementTableView!)
+        self.view.addSubview(addRecordButton!)
+    }
+    
+    //MARK: Selectors
     @objc
     public func addRecordButtonTapped() {
         coordinator?.manageRecord()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        recordsTableView?.layoutSubviews(parent: self.view, owner: self)
-        totalBalanceView?.layoutSubviews(parent: self.view, owner: self)
-        
-    }
+    //MARK: TableView Delegate & DataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3

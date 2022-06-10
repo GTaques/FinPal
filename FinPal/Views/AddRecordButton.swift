@@ -7,11 +7,13 @@
 
 import UIKit
 
-class AddRecordButtonView: UIButton, Clickable {
+class AddRecordButton: UIButton, Clickable {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.frame = CGRect(x: 100, y: 100, width: 200, height: 50)
+        self.backgroundColor = .systemBackground
+        self.setTitle("Click Me!", for: .normal)
+        self.setTitleColor(.systemBlue, for: .normal)
     }
     
     required init?(coder: NSCoder) {
@@ -19,9 +21,7 @@ class AddRecordButtonView: UIButton, Clickable {
     }
     
     func setupOnScreen(parent view: UIView, owner vc: UIViewController) {
-        self.backgroundColor = .systemBackground
-        self.setTitle("Click Me!", for: .normal)
-        self.setTitleColor(.systemBlue, for: .normal)
+        
         view.addSubview(self)
     }
     
