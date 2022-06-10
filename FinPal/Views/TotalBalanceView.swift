@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TotalBalanceView: UIView, Viewable {
+class TotalBalanceView: UIView {
     
     var yourBalanceLabel: UILabel!
     var amountBalanceLabel: UILabel!
@@ -21,31 +21,9 @@ class TotalBalanceView: UIView, Viewable {
         amountBalanceLabel.text = "1000"
         self.addSubview(yourBalanceLabel)
         self.addSubview(amountBalanceLabel)
-        
-        self.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = self.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0)
-        NSLayoutConstraint.activate([horizontalConstraint])
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupOnScreen(parent view: UIView, owner vc: UIViewController) {
-        self.backgroundColor = .red
-        
-        view.addSubview(self)
-    }
-    
-    func layoutSubviews(parent view: UIView, owner vc: UIViewController) {
-        self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 20, height: 200)
-    }
-    
-    func setupConstraintsRelativeToParent(parent view: UIView, owner vc: UIViewController) {
-        let horizontalConstraint = self.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0)
-        self.addConstraints([horizontalConstraint])
-    }
-    
-
-
 }

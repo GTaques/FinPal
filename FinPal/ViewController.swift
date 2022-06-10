@@ -27,19 +27,35 @@ class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UIT
         
         statementTableView!.delegate = self
         statementTableView!.dataSource = self
+//        setupBalanceViewConstraints()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupBalanceViewConstraints()
     }
     
     func createSubviewsComponents() {
         let screenSize = UIScreen.main.bounds
         self.totalBalanceView = TotalBalanceView(frame: CGRect(x: 0, y: 0, width: screenSize.width - 20, height: screenSize.height * 0.2))
+        self.totalBalanceView?.backgroundColor = .blue
         self.statementTableView = StatementTableView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.8))
         self.addRecordButton = AddRecordButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
     }
     
     func addSubviewComponents() {
         self.view.addSubview(totalBalanceView!)
-        self.view.addSubview(statementTableView!)
-        self.view.addSubview(addRecordButton!)
+//        self.view.addSubview(statementTableView!)
+//        self.view.addSubview(addRecordButton!)
+    }
+    
+    func setupBalanceViewConstraints() {
+        self.totalBalanceView!.translatesAutoresizingMaskIntoConstraints = false
+        let verticalConstraint = self.totalBalanceView!.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        let horizontalConstraint = self.totalBalanceView!.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        let widthConstraint = self.totalBalanceView!.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -20)
+        let heightConstraint = self.totalBalanceView!.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.2)
+        NSLayoutConstraint.activate([verticalConstraint, horizontalConstraint, widthConstraint, heightConstraint])
     }
     
     //MARK: Selectors
