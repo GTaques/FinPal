@@ -20,17 +20,23 @@ class TotalBalanceView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.layer.cornerRadius = 15
-        
+        createSubviewComponents()
+        addSubviewComponents()
         yourBalanceLabel.text = "Your balance"
         amountBalanceLabel.text = "1000"
+        
+        setupAvatarConstraints()
+//        setupHelloConstraints()
+//        setupNameConstraints()
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func createSubviewComponents() {
-        avatarImageView = AvatarImageView(frame: CGRect(x: 15, y: 15, width: 50, height: 50))
+        avatarImageView = AvatarImageView(frame: CGRect(x: 15, y: 0, width: 50, height: 50))
         helloLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
         nameLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
         yourBalanceLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
@@ -43,5 +49,33 @@ class TotalBalanceView: UIView {
         self.addSubview(yourBalanceLabel)
         self.addSubview(amountBalanceLabel)
         self.addSubview(avatarImageView)
+    }
+    
+    func setupAvatarConstraints() {
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        let verticalConstraint = self.avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 15)
+        let horizontalConstraint = self.avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15)
+        let heightConstraint = self.avatarImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3)
+        let widthConstraint = self.avatarImageView.widthAnchor.constraint(equalTo: self.avatarImageView.heightAnchor, multiplier: 1)
+        NSLayoutConstraint.activate([verticalConstraint, horizontalConstraint, heightConstraint, widthConstraint])
+    }
+    
+    func setupHelloConstraints() {
+        self.helloLabel.translatesAutoresizingMaskIntoConstraints = false
+        let verticalConstraint = self.helloLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15)
+        let horizontalConstraint = self.helloLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 10)
+        let heightConstraint = self.helloLabel.heightAnchor.constraint(equalTo: self.avatarImageView.heightAnchor, multiplier: 0.4)
+        let widthConstraint = self.helloLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5)
+        NSLayoutConstraint.activate([verticalConstraint, horizontalConstraint, heightConstraint, widthConstraint])
+    }
+    
+    func setupNameConstraints() {
+        self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        let verticalConstraint = self.nameLabel.topAnchor.constraint(equalTo: self.helloLabel.bottomAnchor)
+        let horizontalConstraint = self.nameLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.trailingAnchor, constant: 10)
+        let heightConstraint = self.nameLabel.heightAnchor.constraint(equalTo: self.avatarImageView.heightAnchor, multiplier: 0.6)
+        let widthConstraint = self.nameLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5)
+        
+        NSLayoutConstraint.activate([verticalConstraint, horizontalConstraint, heightConstraint, widthConstraint])
     }
 }
