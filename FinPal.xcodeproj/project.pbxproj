@@ -24,6 +24,7 @@
 		2928AF91285253C20033C13F /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928AF90285253C20033C13F /* Record.swift */; };
 		2928AF95285257800033C13F /* StatementTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928AF94285257800033C13F /* StatementTableView.swift */; };
 		2928AF97285263A90033C13F /* TotalBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928AF96285263A90033C13F /* TotalBalanceView.swift */; };
+		2928AF992853CAAC0033C13F /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928AF982853CAAC0033C13F /* AvatarImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		2928AF90285253C20033C13F /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		2928AF94285257800033C13F /* StatementTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementTableView.swift; sourceTree = "<group>"; };
 		2928AF96285263A90033C13F /* TotalBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalBalanceView.swift; sourceTree = "<group>"; };
+		2928AF982853CAAC0033C13F /* AvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29229DF72857CEBB00138527 /* GreetingsViews */ = {
+			isa = PBXGroup;
+			children = (
+				2928AF982853CAAC0033C13F /* AvatarImageView.swift */,
+			);
+			path = GreetingsViews;
+			sourceTree = "<group>";
+		};
 		2928AF26284F94FE0033C13F = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 		2928AF49284F951E0033C13F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				29229DF72857CEBB00138527 /* GreetingsViews */,
 				2928AF4F284F98350033C13F /* ViewProtocols */,
 				2928AF51284F98860033C13F /* AddRecordButton.swift */,
 				2928AF94285257800033C13F /* StatementTableView.swift */,
@@ -217,6 +228,7 @@
 				2928AF54284F98BF0033C13F /* Clickable.swift in Sources */,
 				2928AF52284F98860033C13F /* AddRecordButton.swift in Sources */,
 				2928AF4D284F95790033C13F /* ManageRecordViewController.swift in Sources */,
+				2928AF992853CAAC0033C13F /* AvatarImageView.swift in Sources */,
 				2928AF37284F94FE0033C13F /* ViewController.swift in Sources */,
 				2928AF33284F94FE0033C13F /* AppDelegate.swift in Sources */,
 				2928AF91285253C20033C13F /* Record.swift in Sources */,
