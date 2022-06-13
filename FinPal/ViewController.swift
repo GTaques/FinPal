@@ -22,30 +22,30 @@ class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UIT
         
         createSubviewsComponents()
         addSubviewComponents()
-        
+        setupStatementTableViewConstraints()
         addRecordButton?.addTarget(self, action: #selector(addRecordButtonTapped), for: .touchUpInside)
         
         statementTableView!.delegate = self
         statementTableView!.dataSource = self
-//        setupBalanceViewConstraints()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupBalanceViewConstraints()
+        
     }
     
     func createSubviewsComponents() {
         let screenSize = UIScreen.main.bounds.size
         self.totalBalanceView = TotalBalanceView(frame: CGRect(x: 0, y: 0, width: screenSize.width - 20, height: screenSize.height * 0.2))
         self.totalBalanceView?.backgroundColor = .blue
-        self.statementTableView = StatementTableView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.8))
+        self.statementTableView = StatementTableView(frame: CGRect(x: 0, y: 200, width: screenSize.width, height: screenSize.height * 0.8))
         self.addRecordButton = AddRecordButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
     }
     
     func addSubviewComponents() {
         self.view.addSubview(totalBalanceView!)
-//        self.view.addSubview(statementTableView!)
+        self.view.addSubview(statementTableView!)
 //        self.view.addSubview(addRecordButton!)
     }
     
@@ -56,6 +56,15 @@ class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UIT
         let widthConstraint = self.totalBalanceView!.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40)
         let heightConstraint = self.totalBalanceView!.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.25)
         NSLayoutConstraint.activate([verticalConstraint, horizontalConstraint, widthConstraint, heightConstraint])
+    }
+    
+    func setupStatementTableViewConstraints() {
+        self.statementTableView!.translatesAutoresizingMaskIntoConstraints = false
+        let topConstraint = self.statementTableView!.topAnchor.constraint(equalTo: self.totalBalanceView!.bottomAnchor, constant: 40)
+        let horizontalConstraint = self.statementTableView!.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        let bottomConstraint = self.statementTableView!.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+        let widthConstraint = self.statementTableView!.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+        NSLayoutConstraint.activate([topConstraint, horizontalConstraint, bottomConstraint, widthConstraint])
     }
     
     //MARK: Selectors

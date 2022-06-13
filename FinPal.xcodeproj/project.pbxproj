@@ -61,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29229DF72857CEBB00138527 /* GreetingsViews */ = {
+			isa = PBXGroup;
+			children = (
+				2928AF982853CAAC0033C13F /* AvatarImageView.swift */,
+			);
+			path = GreetingsViews;
+			sourceTree = "<group>";
+		};
 		2928AF26284F94FE0033C13F = {
 			isa = PBXGroup;
 			children = (
@@ -106,11 +114,11 @@
 		2928AF49284F951E0033C13F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				29229DF72857CEBB00138527 /* GreetingsViews */,
 				2928AF4F284F98350033C13F /* ViewProtocols */,
 				2928AF51284F98860033C13F /* AddRecordButton.swift */,
 				2928AF94285257800033C13F /* StatementTableView.swift */,
 				2928AF96285263A90033C13F /* TotalBalanceView.swift */,
-				2928AF982853CAAC0033C13F /* AvatarImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
