@@ -16,20 +16,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        let tabBarVC = AwesomeTabBarViewController()
+//        tabBarVC.selectedIndex = 0
+        
         // create the main navigation controller to be used for our app
-        let navController = UINavigationController()
+//        let navController = UINavigationController()
 
         // send that into our coordinator so that it can display view controllers
-        coordinator = MainCoordinator(navigationController: navController)
+        
+//        coordinator = MainCoordinator(navigationController: navController, tabBarController: tabBarVC)
 
         // tell the coordinator to take over control
 
         // create a basic UIWindow and activate it
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = navController
+        window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
         
-        coordinator?.start()
+//        coordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
