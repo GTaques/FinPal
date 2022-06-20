@@ -17,11 +17,6 @@ class ManageRecordViewController: UIViewController, Storyboardable {
         self.title = "Create"
         self.navigationItem.title = ""
         // Do any additional setup after loading the view.
-        let dale = self.navigationController?.tabBarController
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        let dale = self.navigationController?.tabBarController
     }
     
 

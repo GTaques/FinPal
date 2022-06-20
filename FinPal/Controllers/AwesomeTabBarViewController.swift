@@ -9,6 +9,8 @@ import UIKit
 
 class AwesomeTabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
+    let menuButton = UIButton(frame: CGRect.zero)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -16,6 +18,7 @@ class AwesomeTabBarViewController: UITabBarController, UITabBarControllerDelegat
         UITabBar.appearance().barTintColor = .systemBackground
         tabBar.tintColor = .label
         setupVCs()
+        setupMiddleButton()
     }
     
     fileprivate func createNavController(for rootViewController: UIViewController,
@@ -32,22 +35,39 @@ class AwesomeTabBarViewController: UITabBarController, UITabBarControllerDelegat
     func setupVCs() {
         viewControllers = [
             createNavController(for: ViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
-            createNavController(for: ManageRecordViewController(), title: NSLocalizedString("Create", comment: ""), image: UIImage(systemName: "plus")!),
+            createNavController(for: ViewController(), title: NSLocalizedString("Create", comment: ""), image: UIImage(systemName: "plus")!),
             createNavController(for: ViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!)
         ]
     }
-    
-//    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-//
-//        present(ManageRecordViewController(), animated: true, completion: nil)
-//        return true
-//    }
-//
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if tabBar.items?.firstIndex(of: item) == 1 {
-            self.viewControllers![0].modalPresentationStyle = .overFullScreen
-            self.viewControllers![0].present(ManageRecordViewController(), animated: true, completion: nil)
-//            self.present(self.viewControllers![0], animated: true, completion: nil)
-        }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        menuButton.frame.origin.y = self.view.bounds.height - menuButton.frame.height - self.view.safeAreaInsets.bottom
     }
+    
+    func setupMiddleButton() {
+        let numberOfItems = CGFloat(tabBar.items!.count)
+        let tabBarItemSize = CGSize(width: tabBar.frame.width / numberOfItems, height: tabBar.frame.height)
+        menuButton.frame = CGRect(x: 0, y: 0, width: tabBarItemSize.width, height: tabBar.frame.size.height)
+        var menuButtonFrame = menuButton.frame
+        menuButtonFrame.origin.y = self.view.bounds.height - menuButtonFrame.height - self.view.safeAreaInsets.bottom
+        menuButtonFrame.origin.x = self.view.bounds.width/2 - menuButtonFrame.size.width/2
+        menuButton.frame = menuButtonFrame
+        menuButton.backgroundColor = UIColor.black
+        menuButton.layer.cornerRadius = menuButtonFrame.height / 2
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .bold, scale: .large)
+        menuButton.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: largeConfig), for: .normal)
+        menuButton.tintColor = .white
+        
+        
+        self.view.addSubview(menuButton)
+        self.view.layoutIfNeeded()
+        menuButton.addTarget(self, action: #selector(presentManageRecordTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func presentManageRecordTapped() {
+        self.present(ManageRecordViewController(), animated: true, completion: nil)
+    }
+
 }
