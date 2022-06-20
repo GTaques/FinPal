@@ -17,9 +17,11 @@ class RecordCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
-//        let vc = ManageRecordViewController.instatiate()
-//        vc.coordinator = self
-//        navigationController.pushViewController(vc, animated: true)
+    func start(push: Bool) {
+        let vc = ManageRecordViewController.instatiate()
+        vc.coordinator = self
+        if push {
+            navigationController.pushViewController(vc, animated: true)
+        }
     }
 }

@@ -9,11 +9,13 @@ import UIKit
 
 class ManageRecordViewController: UIViewController, Storyboardable {
 
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: RecordCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = .red
+        self.title = "Create"
+        self.navigationItem.title = ""
         // Do any additional setup after loading the view.
     }
     

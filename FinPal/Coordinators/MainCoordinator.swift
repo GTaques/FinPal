@@ -10,24 +10,21 @@ import UIKit
 class MainCoordinator: NSObject, Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    var tabBarController: UITabBarController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func start(push: Bool) {
         let vc = ViewController.instatiate()
         vc.coordinator = self
-        
+        vc.title = "Home"
         //Inject Dependencies
+        if push {
+            navigationController.pushViewController(vc, animated: false)
+        }
         
-        navigationController.pushViewController(vc, animated: false)
-    }
-    
-    func manageRecord() {
-        let vc = ManageRecordViewController.instatiate()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
     }
     
 //    func childDidFinish(_ child: Coordinator?) {

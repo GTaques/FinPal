@@ -19,7 +19,8 @@ class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .green
-        
+        self.title = "Home"
+        self.navigationItem.title = ""
         createSubviewsComponents()
         addSubviewComponents()
         setupStatementTableViewConstraints()
@@ -70,7 +71,7 @@ class ViewController: UIViewController, Storyboardable, UITableViewDelegate, UIT
     //MARK: Selectors
     @objc
     public func addRecordButtonTapped() {
-        coordinator?.manageRecord()
+        coordinator?.start(push: true)
     }
     
     //MARK: TableView Delegate & DataSource
